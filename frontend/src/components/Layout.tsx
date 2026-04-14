@@ -208,7 +208,7 @@ export function Layout() {
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-4 py-3 sm:px-6">
           <div className="flex min-w-0 items-center gap-3">
             <img
-              src="/Images/Logo.png"
+              src="/Logo.png"
               alt="Inventra AI logo"
               className="h-11 w-11 shrink-0 rounded-xl bg-white/80 object-cover object-top ring-1 ring-white/90"
             />
@@ -255,7 +255,7 @@ export function Layout() {
             ) : (
               <div className="flex h-full flex-col justify-between">
                 <div className="mb-2 flex items-center gap-2 border-b border-white/15 pb-3 pr-10">
-                  <img src="/Images/Logo.png" alt="Inventra AI" className="h-10 w-10 rounded-lg bg-white/90 object-cover object-top" />
+                  <img src="/Logo.png" alt="Inventra AI" className="h-10 w-10 rounded-lg bg-white/90 object-cover object-top" />
                   <div>
                     <p className="text-sm font-semibold text-white">Smart Inventory System</p>
                     <p className="text-xs text-teal-100/80">Management</p>

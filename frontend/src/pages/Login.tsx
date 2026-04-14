@@ -58,7 +58,7 @@ export function Login() {
     <div className="mx-auto mt-10 max-w-md panel-strong p-8">
       <div className="mb-4 flex justify-center">
         <img
-          src="/Images/Logo.png"
+          src="/Logo.png"
             alt="Inventra AI logo"
           className="h-16 w-16 rounded-2xl bg-white/70 object-cover object-top shadow-sm ring-1 ring-white/90"
         />

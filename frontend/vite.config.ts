@@ -3,7 +3,8 @@ import react from "@vitejs/plugin-react";
 import { fileURLToPath, URL } from "node:url";
 
 export default defineConfig({
-  publicDir: "../public",
+  // Keep deploy assets inside frontend so Vercel Root Directory=frontend works.
+  publicDir: "Images",
   plugins: [react()],
   resolve: {
     alias: {

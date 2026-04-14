@@ -29,9 +29,25 @@ export async function api<T>(
   const res = await fetch(`${baseUrl()}${path}`, { ...rest, headers: h });
   if (res.status === 204) return undefined as T;
   const text = await res.text();
-  const data = text ? JSON.parse(text) : null;
+  let data: unknown = null;
+  if (text) {
+    try {
+      data = JSON.parse(text);
+    } catch {
+      // Some deploy misconfigurations return HTML (index page) instead of API JSON.
+      if (!res.ok) {
+        throw new Error(
+          "API returned non-JSON response. Check VITE_API_URL and backend deployment."
+        );
+      }
+      throw new Error("Received non-JSON response from API.");
+    }
+  }
   if (!res.ok) {
-    const msg = data?.message ?? res.statusText;
+    const msg =
+      typeof data === "object" && data !== null && "message" in data
+        ? (data as { message?: unknown }).message
+        : res.statusText;
     throw new Error(typeof msg === "string" ? msg : "Request failed");
   }
   return data as T;
