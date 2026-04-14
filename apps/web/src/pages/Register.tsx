@@ -43,19 +43,27 @@ export function Register() {
           <div className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-800">{error}</div>
         )}
         <div>
-          <label className="block text-sm font-medium text-slate-700">Email</label>
+          <label htmlFor="register-email" className="block text-sm font-medium text-slate-700">
+            Email
+          </label>
           <input
+            id="register-email"
             type="email"
             autoComplete="email"
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="input-base"
+            title="Email address"
+            placeholder="you@example.com"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-slate-700">Password</label>
+          <label htmlFor="register-password" className="block text-sm font-medium text-slate-700">
+            Password
+          </label>
           <input
+            id="register-password"
             type="password"
             autoComplete="new-password"
             required
@@ -63,6 +71,8 @@ export function Register() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="input-base"
+            title="Password"
+            placeholder="Create a strong password"
           />
         </div>
         <button

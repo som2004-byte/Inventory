@@ -148,39 +148,58 @@ export function ItemForm() {
       >
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="sm:col-span-2">
-            <label className="text-sm font-medium text-slate-700">SKU</label>
+            <label htmlFor="item-sku" className="text-sm font-medium text-slate-700">
+              SKU
+            </label>
             <input
+              id="item-sku"
               required
               disabled={!isNew}
               value={form.sku}
               onChange={(e) => setForm((f) => ({ ...f, sku: e.target.value }))}
               className="input-base disabled:bg-slate-100"
+              title="SKU"
+              placeholder="e.g. SKU-001"
             />
           </div>
           <div className="sm:col-span-2">
-            <label className="text-sm font-medium text-slate-700">Name</label>
+            <label htmlFor="item-name" className="text-sm font-medium text-slate-700">
+              Name
+            </label>
             <input
+              id="item-name"
               required
               value={form.name}
               onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
               className="input-base"
+              title="Item name"
+              placeholder="Enter item name"
             />
           </div>
           <div className="sm:col-span-2">
-            <label className="text-sm font-medium text-slate-700">Description</label>
+            <label htmlFor="item-description" className="text-sm font-medium text-slate-700">
+              Description
+            </label>
             <textarea
+              id="item-description"
               value={form.description}
               onChange={(e) => setForm((f) => ({ ...f, description: e.target.value }))}
               rows={3}
               className="input-base"
+              title="Item description"
+              placeholder="Enter description"
             />
           </div>
           <div>
-            <label className="text-sm font-medium text-slate-700">Category</label>
+            <label htmlFor="item-category" className="text-sm font-medium text-slate-700">
+              Category
+            </label>
             <select
+              id="item-category"
               value={form.categoryId}
               onChange={(e) => setForm((f) => ({ ...f, categoryId: e.target.value }))}
               className="input-base"
+              title="Select category"
             >
               <option value="">—</option>
               {(categories ?? []).map((c) => (
@@ -191,11 +210,15 @@ export function ItemForm() {
             </select>
           </div>
           <div>
-            <label className="text-sm font-medium text-slate-700">Warehouse zone</label>
+            <label htmlFor="item-zone" className="text-sm font-medium text-slate-700">
+              Warehouse zone
+            </label>
             <select
+              id="item-zone"
               value={form.zoneId}
               onChange={(e) => setForm((f) => ({ ...f, zoneId: e.target.value }))}
               className="input-base"
+              title="Select warehouse zone"
             >
               <option value="">—</option>
               {(zones ?? []).map((z) => (
@@ -215,44 +238,64 @@ export function ItemForm() {
             />
           </div>
           <div>
-            <label className="text-sm font-medium text-slate-700">Unit</label>
+            <label htmlFor="item-unit" className="text-sm font-medium text-slate-700">
+              Unit
+            </label>
             <input
+              id="item-unit"
               value={form.unit}
               onChange={(e) => setForm((f) => ({ ...f, unit: e.target.value }))}
               className="input-base"
+              title="Unit"
+              placeholder="e.g. pcs"
             />
           </div>
           <div>
-            <label className="text-sm font-medium text-slate-700">Reorder level</label>
+            <label htmlFor="item-reorder-level" className="text-sm font-medium text-slate-700">
+              Reorder level
+            </label>
             <input
+              id="item-reorder-level"
               type="number"
               min={0}
               value={form.reorderLevel}
               onChange={(e) => setForm((f) => ({ ...f, reorderLevel: Number(e.target.value) }))}
               className="input-base"
+              title="Reorder level"
+              placeholder="0"
             />
           </div>
           <div>
-            <label className="text-sm font-medium text-slate-700">Unit cost</label>
+            <label htmlFor="item-unit-cost" className="text-sm font-medium text-slate-700">
+              Unit cost
+            </label>
             <input
+              id="item-unit-cost"
               type="number"
               step="0.01"
               min={0}
               value={form.unitCost}
               onChange={(e) => setForm((f) => ({ ...f, unitCost: e.target.value }))}
               className="input-base"
+              title="Unit cost"
+              placeholder="0.00"
             />
           </div>
           {isNew && (
             <div>
-              <label className="text-sm font-medium text-slate-700">Initial quantity</label>
+              <label htmlFor="item-initial-quantity" className="text-sm font-medium text-slate-700">
+                Initial quantity
+              </label>
               <input
+                id="item-initial-quantity"
                 type="number"
                 value={form.currentQuantity}
                 onChange={(e) =>
                   setForm((f) => ({ ...f, currentQuantity: Number(e.target.value) }))
                 }
                 className="input-base"
+                title="Initial quantity"
+                placeholder="0"
               />
             </div>
           )}
@@ -302,20 +345,30 @@ export function ItemForm() {
           </p>
           <div className="mt-4 flex flex-wrap items-end gap-3">
             <div>
-              <label className="text-xs font-medium text-slate-500">Delta</label>
+              <label htmlFor="item-adjust-delta" className="text-xs font-medium text-slate-500">
+                Delta
+              </label>
               <input
+                id="item-adjust-delta"
                 type="number"
                 value={delta}
                 onChange={(e) => setDelta(e.target.value)}
                 className="input-base w-32"
+                title="Stock adjustment delta"
+                placeholder="e.g. -2"
               />
             </div>
             <div className="min-w-[200px] flex-1">
-              <label className="text-xs font-medium text-slate-500">Reason (optional)</label>
+              <label htmlFor="item-adjust-reason" className="text-xs font-medium text-slate-500">
+                Reason (optional)
+              </label>
               <input
+                id="item-adjust-reason"
                 value={adjustReason}
                 onChange={(e) => setAdjustReason(e.target.value)}
                 className="input-base"
+                title="Adjustment reason"
+                placeholder="e.g. sale correction"
               />
             </div>
             <button

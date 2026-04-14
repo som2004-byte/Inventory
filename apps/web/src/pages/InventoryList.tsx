@@ -183,11 +183,15 @@ export function InventoryList() {
           />
         </div>
         <div>
-          <label className="text-xs font-medium text-slate-500">Category</label>
+          <label htmlFor="inventory-category-filter" className="text-xs font-medium text-slate-500">
+            Category
+          </label>
           <select
+            id="inventory-category-filter"
             value={categoryId}
             onChange={(e) => updateParams({ categoryId: e.target.value || undefined, page: "1" })}
             className="input-base mt-1 block min-w-[160px]"
+            title="Filter by category"
           >
             <option value="">All</option>
             {(categories ?? []).map((c) => (
@@ -198,11 +202,15 @@ export function InventoryList() {
           </select>
         </div>
         <div>
-          <label className="text-xs font-medium text-slate-500">Sort</label>
+          <label htmlFor="inventory-sort-filter" className="text-xs font-medium text-slate-500">
+            Sort
+          </label>
           <select
+            id="inventory-sort-filter"
             value={sort}
             onChange={(e) => updateParams({ sort: e.target.value, page: "1" })}
             className="input-base mt-1 block min-w-[160px]"
+            title="Sort items"
           >
             <option value="updated_desc">Recently updated</option>
             <option value="name_asc">Name A–Z</option>

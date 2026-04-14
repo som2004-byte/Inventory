@@ -80,19 +80,27 @@ export function Login() {
           <div className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-800">{error}</div>
         )}
         <div>
-          <label className="block text-sm font-medium text-slate-700">Email</label>
+          <label htmlFor="login-email" className="block text-sm font-medium text-slate-700">
+            Email
+          </label>
           <input
+            id="login-email"
             type="email"
             autoComplete="email"
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="input-base"
+            title="Email address"
+            placeholder="you@example.com"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-slate-700">Password</label>
+          <label htmlFor="login-password" className="block text-sm font-medium text-slate-700">
+            Password
+          </label>
           <input
+            id="login-password"
             type="password"
             autoComplete="current-password"
             required
@@ -100,6 +108,8 @@ export function Login() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="input-base"
+            title="Password"
+            placeholder="Enter your password"
           />
         </div>
         <button

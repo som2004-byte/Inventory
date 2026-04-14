@@ -216,6 +216,8 @@ export function CategoriesAdmin() {
                             <button
                               type="button"
                               className="rounded p-1 text-[#118a9d] hover:bg-slate-100"
+                              aria-label={`Edit category ${c.name}`}
+                              title="Edit category"
                               onClick={() => startEdit(c)}
                             >
                               <Pencil size={14} />
@@ -224,6 +226,8 @@ export function CategoriesAdmin() {
                               <button
                                 type="button"
                                 className="rounded p-1 text-rose-600 hover:bg-slate-100"
+                                aria-label={`Delete category ${c.name}`}
+                                title="Delete category"
                                 onClick={() => {
                                   if (
                                     confirm(

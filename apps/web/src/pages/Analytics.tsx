@@ -93,11 +93,15 @@ export function Analytics() {
 
       <div className="panel flex flex-wrap items-end gap-4 p-5">
         <div>
-          <label className="text-xs font-medium text-slate-500">Item</label>
+          <label htmlFor="analytics-item-select" className="text-xs font-medium text-slate-500">
+            Item
+          </label>
           <select
+            id="analytics-item-select"
             value={itemId}
             onChange={(e) => setItemId(e.target.value)}
             className="input-base mt-1 block min-w-[220px]"
+            title="Select item"
           >
             <option value="">Select item…</option>
             {(itemsPage?.data ?? []).map((i: Item) => (
@@ -108,14 +112,19 @@ export function Analytics() {
           </select>
         </div>
         <div>
-          <label className="text-xs font-medium text-slate-500">Forecast days</label>
+          <label htmlFor="forecast-days-input" className="text-xs font-medium text-slate-500">
+            Forecast days
+          </label>
           <input
+            id="forecast-days-input"
             type="number"
             min={1}
             max={90}
             value={horizon}
             onChange={(e) => setHorizon(Number(e.target.value))}
             className="input-base mt-1 w-24"
+            title="Forecast days"
+            placeholder="30"
           />
         </div>
         <button

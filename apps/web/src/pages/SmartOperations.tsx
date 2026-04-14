@@ -313,10 +313,16 @@ export function SmartOperations() {
             <code className="rounded bg-slate-100 px-1 text-xs">qr_scan</code> event.
           </p>
           <div className="mt-4 flex flex-wrap gap-2">
+            <label htmlFor="smart-ops-scan-code" className="sr-only">
+              Scan code
+            </label>
             <input
+              id="smart-ops-scan-code"
               value={scanCode}
               onChange={(e) => setScanCode(e.target.value)}
               className="input-base min-w-[220px] flex-1"
+              title="Scan code"
+              placeholder="INV|SKU"
             />
             <button
               type="button"
