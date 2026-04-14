@@ -1,0 +1,17 @@
+{
+  "name": "inventory-platform",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev:api": "npm run dev -w @inventory/api",
+    "dev:web": "npm run dev -w @inventory/web",
+    "build": "npm run build -w @inventory/api && npm run build -w @inventory/web",
+    "db:up": "docker compose up -d",
+    "db:down": "docker compose down",
+    "db:migrate": "npm run prisma:migrate -w @inventory/api",
+    "db:generate": "npm run prisma:generate -w @inventory/api",
+    "db:seed": "npm run prisma:seed -w @inventory/api"
+  }
+}

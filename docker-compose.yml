@@ -1,0 +1,27 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: inventory-postgres
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: inventory
+      POSTGRES_PASSWORD: inventory
+      POSTGRES_DB: inventory
+    volumes:
+      - inventory_pg_data:/var/lib/postgresql/data
+
+  ml:
+    build:
+      context: ./services/ml
+      dockerfile: Dockerfile
+    container_name: inventory-ml
+    restart: unless-stopped
+    ports:
+      - "8001:8001"
+    environment:
+      ML_INTERNAL_KEY: ${ML_INTERNAL_KEY:-dev-ml-key-change-me}
+
+volumes:
+  inventory_pg_data:
