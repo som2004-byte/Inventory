@@ -3,5 +3,5 @@
   "framework": "vite",
   "installCommand": "npm install",
   "buildCommand": "npm run build -w @inventory/web",
-  "outputDirectory": "apps/web/dist"
+  "outputDirectory": "frontend/dist"
 }

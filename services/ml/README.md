@@ -25,7 +25,7 @@ python -m uvicorn app.main:app --reload --port 8001
 }
 ```
 
-Match `ML_INTERNAL_KEY` with the same variable in `apps/api/.env`.
+Match `ML_INTERNAL_KEY` with the same variable in `backend/.env`.
 
 ## Docker
 

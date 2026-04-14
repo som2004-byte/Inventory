@@ -2,9 +2,12 @@
   "name": "inventory-platform",
   "private": true,
   "workspaces": [
-    "apps/*"
+    "frontend",
+    "backend"
   ],
   "scripts": {
+    "dev:frontend": "npm run dev -w @inventory/web",
+    "dev:backend": "npm run dev -w @inventory/api",
     "dev:api": "npm run dev -w @inventory/api",
     "dev:web": "npm run dev -w @inventory/web",
     "build": "npm run build -w @inventory/api && npm run build -w @inventory/web",

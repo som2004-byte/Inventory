@@ -2,7 +2,7 @@ generator client {
   provider = "prisma-client-js"
 }
 
-// PostgreSQL only — no SQLite/MongoDB. DATABASE_URL in apps/api/.env
+// PostgreSQL only — no SQLite/MongoDB. DATABASE_URL in backend/.env
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")

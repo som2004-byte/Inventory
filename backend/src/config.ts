@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 import { fileURLToPath } from "node:url";
 
-// Always load env from apps/api/.env regardless of current working directory.
+// Always load env from backend/.env regardless of current working directory.
 dotenv.config({ path: fileURLToPath(new URL("../.env", import.meta.url)) });
 
 /** Strip optional surrounding quotes from .env values (some editors add them). */
@@ -23,7 +23,7 @@ export function assertPostgresDatabaseUrl(): void {
   if (!url) {
     console.error(
       "[config] DATABASE_URL is missing.\n" +
-        "  Add it to apps/api/.env — example:\n" +
+        "  Add it to backend/.env — example:\n" +
         '  DATABASE_URL="postgresql://USER:PASSWORD@localhost:5432/inventory?schema=public"\n' +
         "  Create database `inventory` in PostgreSQL first, then run: npx prisma migrate deploy"
     );

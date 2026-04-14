@@ -6,8 +6,8 @@ Monorepo with a **React** dashboard, **Express + Prisma** API, **PostgreSQL**, o
 
 | Path | Description |
 |------|-------------|
-| `apps/web` | Vite + React + TypeScript + Tailwind + TanStack Query/Table + Recharts |
-| `apps/api` | Express + JWT + RBAC + Prisma + ML proxy + OpenAI chat tools |
+| `frontend` | Vite + React + TypeScript + Tailwind + TanStack Query/Table + Recharts |
+| `backend` | Express + JWT + RBAC + Prisma + ML proxy + OpenAI chat tools |
 | `services/ml` | FastAPI internal forecast API (`/internal/forecast`) |
 
 ## Prerequisites
@@ -21,7 +21,7 @@ Monorepo with a **React** dashboard, **Express + Prisma** API, **PostgreSQL**, o
 
 1. **Install PostgreSQL** on your machine ([Windows download](https://www.postgresql.org/download/windows/)) or use a **hosted** Postgres (Neon, Supabase, Railway, etc.).
 2. Create a database named **`inventory`** (any name is fine if you change `DATABASE_URL`).
-3. Copy env and set **`DATABASE_URL`** in `apps/api/.env` (see `apps/api/.env.example` for examples).
+3. Copy env and set **`DATABASE_URL`** in `backend/.env` (see `backend/.env.example` for examples).
 4. The API **checks on startup** that `DATABASE_URL` is a `postgresql://` URL and exits with a clear message if it is missing or wrong.
 
 **Docker (optional):**
@@ -37,7 +37,7 @@ Use the default URL from `.env.example` (`inventory` / `inventory` user and DB).
 1. **API env**
 
    ```bash
-   cp apps/api/.env.example apps/api/.env
+   cp backend/.env.example backend/.env
    ```
 
    Edit **`DATABASE_URL`** so it matches **your** PostgreSQL user, password, host, port, and database name.
@@ -62,7 +62,7 @@ Use the default URL from `.env.example` (`inventory` / `inventory` user and DB).
 
    ```bash
    npm install
-   cd apps/api
+   cd backend
    npx prisma migrate deploy
    npx prisma db seed
    ```
