@@ -18,9 +18,26 @@ import smartRoutes from "./routes/smart.js";
 export function createApp() {
   const app = express();
   app.use(helmet());
+  const allowedOrigins = (config.webOrigin || "")
+    .split(",")
+    .map((s) => s.trim())
+    .filter(Boolean);
   app.use(
     cors({
-      origin: config.webOrigin,
+      origin: (origin, cb) => {
+        // Allow same-origin/non-browser requests (no Origin header)
+        if (!origin) return cb(null, true);
+        if (allowedOrigins.length === 0) return cb(null, false);
+        if (allowedOrigins.includes(origin)) return cb(null, true);
+
+        // Convenience: allow any Vercel preview when you set WEB_ORIGIN="https://your-app.vercel.app"
+        // by also accepting *.vercel.app origins (previews) for the same project.
+        const vercelWildcardAllowed =
+          allowedOrigins.some((o) => o.endsWith(".vercel.app")) && origin.endsWith(".vercel.app");
+        if (vercelWildcardAllowed) return cb(null, true);
+
+        return cb(null, false);
+      },
       credentials: true,
     })
   );
